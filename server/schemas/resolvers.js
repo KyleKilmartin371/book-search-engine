@@ -48,7 +48,7 @@ const resolvers = {
           { _id: contect.User._Id },
           {
             $push: {
-              saveBooks: { bookId },
+              saveBooks: { newBook },
             },
           },
           { new: true, runValidators: true }
