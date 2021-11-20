@@ -33,11 +33,6 @@ type Book {
     saveBook(bookId: ID!, authors: [String], description: String, image: String, link: String): User
     removeBook(bookId: ID!): User
   }
-
-  type Auth {
-    token: ID!
-    user: User
-  }
 `;
 
 module.exports = typeDefs;

@@ -7,6 +7,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { useQuery, useMutation } from "@apollo/client";
+import { removeBookId } from '../utils/localStorage';
 import { GET_ME } from "../utils/queries";
 import { REMOVE_BOOK } from "../utils/mutations";
 import Auth from "../utils/auth";
@@ -16,7 +17,7 @@ const SavedBooks = () => {
   const [removeBook] = useMutation(REMOVE_BOOK);
   const userData = data?.me || {};
 
-  const handleDeleteBook = async (bookId) => {
+  const handleDeleteBook = async bookId => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -24,8 +25,11 @@ const SavedBooks = () => {
     }
 
     try {
-      await removeBook(bookId, token);
+      await removeBook({
+        variables: { bookId }
+      });
 
+      removeBookId(bookId);
     } catch (err) {
       console.error(err);
     }
