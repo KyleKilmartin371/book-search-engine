@@ -11,8 +11,14 @@
 
   A website that searches through a google api to load the top 10 results for books related to your search.
 
+
+
+
 ## Installation
   Run npm install and then npm run develop from the root directory
+
+## Deployed Link
+Check out the deployed link [Here!](https://serene-basin-67744.herokuapp.com/)
 
 ## Usage
   ![screenshot](./client/src/assets/screenshot.jpg)
